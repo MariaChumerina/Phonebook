@@ -6,7 +6,12 @@ export default class List extends React.Component {
       <div>
         <ul>
           <li>
-            Maria
+            <p>
+              Maria
+            </p>
+            <p>
+              +79327482937
+            </p>
           </li>
         </ul>
       </div>
