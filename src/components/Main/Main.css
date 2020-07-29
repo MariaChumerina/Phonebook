@@ -1,0 +1,22 @@
+.contacts-container {
+    width: 28vw;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+}
+.contacts-title-container {
+    display: flex;
+    position: relative;
+}
+.btn-link-position {
+    position: absolute;
+    left: 90px;
+}
+.margin-vertical-30 {
+    margin: 30px 0;
+}
+@media screen and (max-width: 767px) {
+    .contacts-container {
+        width: 70vw;
+    }
+}

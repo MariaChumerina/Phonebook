@@ -6,6 +6,12 @@
     padding-left: 0;
     padding-right: 0;
 }
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 19px;
+}
 .margin-top-50 {
     margin-top: 50px;
 }
@@ -20,4 +26,15 @@ button {
 }
 button:hover {
     opacity: 0.8;
+}
+.btn-link {
+    border: none;
+    background: none;
+    color: #0000FF;
+    font-size: 30px;
+    font-weight: bold;
+}
+.btn-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
