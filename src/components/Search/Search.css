@@ -1,0 +1,29 @@
+.search-container {
+    display: flex;
+    width: 45vw;
+    margin: 30px 0;
+}
+.form-field {
+    font-size: 14px;
+    width: 46%;
+    height: 36px;
+    padding: 0 14px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: 0;
+    transition: .2s;
+}
+.form-field:focus {
+    border-color: #0f7ef1;
+}
+.btn-search-position {
+    margin-left: 20px;
+}
+@media screen and (max-width: 767px) {
+    .form-field {
+        width: 90%;
+    }
+    .search-container {
+        width: 80vw;
+    }
+}
