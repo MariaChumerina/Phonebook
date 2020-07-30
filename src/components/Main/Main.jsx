@@ -1,39 +1,39 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import List from '../List/List.jsx';
 import FormSearch from '../Forms/FormSearch.jsx';
 import Modal from '../Modal/Modal.jsx';
 import './Main.css';
-import { connect } from 'react-redux';
 import { openModal } from '../../Store/actions/modalActions.js';
 
-const Main = ({modalIsOpen, openModal}) => {
+const Main = ({ modalIsOpen, openModal }) => {
   const handleClick = () => {
     openModal();
-  }
+  };
 
   return (
-      <div className="margin-top-50">
-        {modalIsOpen && <Modal  />}
-        <h1>
-          Телефонный справочник
-        </h1>
-        <FormSearch />
-        <div className="contacts-container margin-top-50">
-          <div className="contacts-title-container">
-            <h2>
-              Контакты
-            </h2>
-            <button className="btn-link btn-link-position" onClick={handleClick}>
-              &#43;
-            </button>
-          </div>
-          <List />
+    <div className="margin-top-50">
+      {modalIsOpen && <Modal />}
+      <h1>
+        Телефонный справочник
+      </h1>
+      <FormSearch />
+      <div className="contacts-container margin-top-50">
+        <div className="contacts-title-container">
+          <h2>
+            Контакты
+          </h2>
+          <button type="button" className="btn-link btn-link-position" onClick={handleClick}>
+            &#43;
+          </button>
         </div>
+        <List />
       </div>
+    </div>
   );
-}
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     modalIsOpen: state.modal.isOpen,
   };

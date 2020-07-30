@@ -7,9 +7,9 @@ const List = ({ contacts }) => {
   const renderListItems = () => {
     return contacts.map((contact) => {
       const { name, number } = contact;
-      return <ListItem name={name} number={number} key={number}/>
-    })
-  }
+      return <ListItem name={name} number={number} key={number} />;
+    });
+  };
 
   return (
     <div>
@@ -18,13 +18,12 @@ const List = ({ contacts }) => {
       </ul>
     </div>
   );
-}
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const contacts = state.filteredContacts.contact.length
-      ? state.contacts.contacts.filter((contact) => {
-        return contact.name.toLowerCase().includes(state.filteredContacts.contact.toLowerCase())
-      }) : state.contacts.contacts;
+      ? state.contacts.contacts.filter((contact) => contact.name.toLowerCase().includes(state.filteredContacts.contact.toLowerCase()))
+    : state.contacts.contacts;
   return {
     contacts,
   };

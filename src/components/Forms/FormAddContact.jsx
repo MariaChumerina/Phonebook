@@ -23,9 +23,7 @@ class FormAddContact extends React.Component {
 
   validateContact = (field, value) => {
     const { contacts } = this.props.contacts;
-    const filteredContacts = contacts.filter((contact) => {
-      return contact[field] === value;
-    });
+    const filteredContacts = contacts.filter((contact) => contact[field] === value);
     if (filteredContacts.length) {
       throw new Error('Контакт с таким именем или номером уже существует');
     }
@@ -34,6 +32,7 @@ class FormAddContact extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, number } = this.state;
+    const { addContact, closeModal } = this.props;
     try {
       this.validateContact('name', name);
       this.validateContact('number', number);
@@ -41,9 +40,9 @@ class FormAddContact extends React.Component {
       this.setState({ error: error.message });
       return;
     }
-    this.props.addContact({ name, number });
+    addContact({ name, number });
     this.setState({ name: '', number: '' });
-    this.props.closeModal();
+    closeModal();
   }
 
   render() {
@@ -52,23 +51,23 @@ class FormAddContact extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div>
           <input
-              type="text"
-              className="form-field"
-              placeholder="Введите имя"
-              value={name}
-              onChange={this.handleChangeName}
-              required
+            type="text"
+            className="form-field"
+            placeholder="Введите имя"
+            value={name}
+            onChange={this.handleChangeName}
+            required
           />
         </div>
         <div>
           <input
-              type="tel"
-              pattern="^[0-9]+$"
-              className="form-field"
-              placeholder="Номер телефона без дефисов"
-              value={number}
-              onChange={this.handleChangeNumber}
-              required
+            type="tel"
+            pattern="^[0-9]+$"
+            className="form-field"
+            placeholder="Номер телефона без дефисов"
+            value={number}
+            onChange={this.handleChangeNumber}
+            required
           />
           {error && (
             <p className="attention">
@@ -86,7 +85,7 @@ class FormAddContact extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,
   };
