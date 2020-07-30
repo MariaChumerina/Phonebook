@@ -62,13 +62,14 @@ class FormAddContact extends React.Component {
         <div>
           <input
             type="tel"
-            pattern="^[0-9]+$"
+            pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             className="form-field"
-            placeholder="Номер телефона без дефисов"
+            placeholder="Введите номер телефона"
             value={number}
             onChange={this.handleChangeNumber}
             required
           />
+          <p className="help-text">формат: 8-xxx-xxx-xx-xx</p>
           {error && (
             <p className="attention">
               {error}
