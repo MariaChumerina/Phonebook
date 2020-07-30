@@ -41,6 +41,10 @@ class FormAddContact extends React.Component {
       this.setState({ prompt: 'Введите номер телефона' });
       return false;
     }
+    else if (number.length > 10) {
+      this.setState({ prompt: 'Максимум 10 цифр' });
+      return false;
+    }
     else if (filteredContactsName.length) {
       this.setState({ prompt: 'Контакт с таким именем уже существует' });
       return false;
