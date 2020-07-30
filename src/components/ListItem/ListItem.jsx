@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../Store/actions/contactsActions.js';
+import './ListItem.css';
 
 const ListItem = ({ name, number, deleteContact }) => {
   const handleRemove = () => {

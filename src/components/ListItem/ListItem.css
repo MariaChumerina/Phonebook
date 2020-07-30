@@ -1,0 +1,16 @@
+li {
+    position: relative;
+    list-style-type: none;
+}
+p {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+.btn-delete-position {
+    position: absolute;
+    top: -15px;
+    right: 0;
+}
+li button {
+    font-size: 24px;
+}
