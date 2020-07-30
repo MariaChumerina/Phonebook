@@ -1,6 +1,6 @@
 .contacts-container {
     width: 28vw;
-    height: 300px;
+    max-height: 350px;
     overflow-y: scroll;
     padding: 15px;
     border: 1px solid lightgrey;
