@@ -2,7 +2,7 @@ import * as React from 'react';
 import './Modal.css';
 import { closeModal } from '../../Store/actions/modalActions.js';
 import { connect } from 'react-redux';
-import FormAddContact from '../FormAddContact/FormAddContact.jsx';
+import FormAddContact from '../Forms/FormAddContact.jsx';
 
 class Modal extends React.Component {
   handleClose = () => {

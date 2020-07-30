@@ -4,8 +4,8 @@ import './List.css';
 import ListItem from '../ListItem/ListItem.jsx';
 
 class List extends React.Component {
-  addItemsOfList = () => {
-    const { contacts } = this.props.contacts;
+  renderListItems = () => {
+    const { contacts } = this.props;
     return contacts.map((contact) => {
       const { name, number } = contact;
       return <ListItem name={name} number={number} key={number}/>
@@ -13,19 +13,24 @@ class List extends React.Component {
   }
 
   render() {
-    const { contacts } = this.props.contacts;
+    const { contacts } = this.props;
     return (
       <div>
         <ul>
-          {contacts.length ? this.addItemsOfList() : 'Пока нет добавленных контактов'}
+          {contacts.length ? this.renderListItems() : 'Пусто'}
         </ul>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
+  const contacts = state.filteredContacts.contact.length
+      ? state.contacts.contacts.filter((contact) => {
+        return contact.name.includes(state.filteredContacts.contact)
+      })
+        : state.contacts.contacts;
   return {
-    contacts: state.contacts,
+    contacts,
   };
 };
 

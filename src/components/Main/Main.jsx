@@ -1,6 +1,6 @@
 import * as React from 'react';
 import List from '../List/List.jsx';
-import Search from '../Search/Search.jsx';
+import FormSearch from '../Forms/FormSearch.jsx';
 import Modal from '../Modal/Modal.jsx';
 import './Main.css';
 import { connect } from 'react-redux';
@@ -17,7 +17,7 @@ const Main = ({modalIsOpen, openModal}) => {
         <h1>
           Телефонный справочник
         </h1>
-        <Search />
+        <FormSearch />
         <div className="contacts-container margin-top-50">
           <div className="contacts-title-container">
             <h2>
