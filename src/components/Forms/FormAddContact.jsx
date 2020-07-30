@@ -8,7 +8,7 @@ class FormAddContact extends React.Component {
   state = {
     name: '',
     number: '',
-    prompt: '',
+    error: null,
   }
 
   handleChangeName = (e) => {
@@ -21,37 +21,16 @@ class FormAddContact extends React.Component {
     this.setState({ number: value });
   }
 
-  isValidateContact = (name, number) => {
+  isValidate = (field, value) => {
     const { contacts } = this.props.contacts;
-    const filteredContactsName = contacts.filter((contact) => {
-      return contact.name === name;
+    const filteredContacts = contacts.filter((contact) => {
+      return contact[field] === value;
     });
-    const filteredContactsNumber = contacts.filter((contact) => {
-      return contact.number === number;
-    });
-    if (name.length === 0 && number.length === 0) {
-      this.setState({ prompt: 'Введите имя и пароль' });
-      return false;
+    if (value.length === 0) {
+      throw new Error('Заполните все поля');
     }
-    else if (name.length === 0) {
-      this.setState({ prompt: 'Введите имя' });
-      return false;
-    }
-    else if (number.length === 0) {
-      this.setState({ prompt: 'Введите номер телефона' });
-      return false;
-    }
-    else if (number.length > 10) {
-      this.setState({ prompt: 'Максимум 10 цифр' });
-      return false;
-    }
-    else if (filteredContactsName.length) {
-      this.setState({ prompt: 'Контакт с таким именем уже существует' });
-      return false;
-    }
-    else if (filteredContactsNumber.length) {
-      this.setState({ prompt: 'Контакт с таким номером уже существует' });
-      return false;
+    else if (filteredContacts.length) {
+      throw new Error('Контакт уже существует');
     }
     return true;
   }
@@ -59,15 +38,19 @@ class FormAddContact extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, number } = this.state;
-    if (this.isValidateContact(name, number)) {
-      this.props.addContact({ name, number });
-      this.props.closeModal();
+    try {
+      this.isValidate('name', name);
+      this.isValidate('number', number);
+    } catch (error) {
+      this.setState({ name: '', number: '', error: error.message });
+      return;
     }
-    this.setState({ name: '', number: ''});
+    this.props.addContact({ name, number });
+    this.props.closeModal();
   }
 
   render() {
-    const { name, number, prompt } = this.state;
+    const { name, number, error } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
@@ -83,19 +66,18 @@ class FormAddContact extends React.Component {
           <input
               type="tel"
               name="tel"
-              pattern="^[ 0-9]+$"
+              pattern="^[0-9]+$"
               className="form-field"
               list="json-datalist"
               placeholder="Номер телефона без дефисов"
               value={number}
               onChange={this.handleChangeNumber}
           />
-          {prompt.length
-              ? (
+          {error && (
             <p className="attention">
-              {prompt}
+              {error}
             </p>
-              ) : ''}
+          )}
         </div>
         <div>
           <button type="submit">
