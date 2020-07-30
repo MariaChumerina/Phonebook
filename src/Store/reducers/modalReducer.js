@@ -1,7 +1,16 @@
+import { CLOSE_MODAL, OPEN_MODAL } from '../actions/modalActions.js';
+
 const initialState = {
   isOpen: false,
 };
 
 export const modalReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case OPEN_MODAL:
+      return { isOpen: action.payload };
+    case CLOSE_MODAL:
+      return { isOpen: action.payload };
+    default:
+      return state;
+  }
 }

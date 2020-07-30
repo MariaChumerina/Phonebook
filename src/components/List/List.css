@@ -1,0 +1,11 @@
+li {
+    position: relative;
+}
+.btn-delete-position {
+    position: absolute;
+    top: -15px;
+    left: 60px;
+}
+li button {
+    font-size: 24px;
+}
