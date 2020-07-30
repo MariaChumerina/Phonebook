@@ -38,10 +38,11 @@ class FormAddContact extends React.Component {
       this.validateContact('name', name);
       this.validateContact('number', number);
     } catch (error) {
-      this.setState({ name: '', number: '', error: error.message });
+      this.setState({ error: error.message });
       return;
     }
     this.props.addContact({ name, number });
+    this.setState({ name: '', number: '' });
     this.props.closeModal();
   }
 
