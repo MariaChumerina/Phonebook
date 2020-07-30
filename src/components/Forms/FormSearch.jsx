@@ -13,10 +13,16 @@ class FormSearch extends React.Component {
     this.setState({ value });
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { value } = this.state;
     this.props.searchContacts(value);
     this.setState({ value: '' });
+  }
+
+  handleClean = (e) => {
+    e.preventDefault();
+    this.props.searchContacts('');
   }
 
   render() {
@@ -28,7 +34,7 @@ class FormSearch extends React.Component {
           <input
               className="form-field"
               list="json-datalist"
-              placeholder="Введите имя"
+              placeholder="Искать"
               value={value}
               onChange={this.handleChange}
           />
@@ -36,7 +42,7 @@ class FormSearch extends React.Component {
             Поиск
           </button>
         </div>
-        <button className="btn-link">
+        <button className="btn-link" onClick={this.handleClean}>
           Сбросить значение поиска
         </button>
       </form>
