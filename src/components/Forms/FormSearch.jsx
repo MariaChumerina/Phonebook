@@ -8,6 +8,10 @@ class FormSearch extends React.Component {
     value: '',
   }
 
+  componentDidMount() {
+    this.props.searchContacts('');
+  }
+
   handleChange = (e) => {
     const { value } = e.target;
     this.setState({ value });
@@ -18,13 +22,13 @@ class FormSearch extends React.Component {
     const { value } = this.state;
     const { searchContacts } = this.props;
     searchContacts(value);
-    this.setState({ value: '' });
   }
 
   handleClean = (e) => {
     e.preventDefault();
     const { searchContacts } = this.props;
     searchContacts('');
+    this.setState({ value: '' });
   }
 
   render() {

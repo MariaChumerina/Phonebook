@@ -53,23 +53,25 @@ class FormAddContact extends React.Component {
           <input
             type="text"
             className="form-field"
+            pattern="[A-Za-zА-Яа-яЁё]{1,13}"
             placeholder="Введите имя"
             value={name}
             onChange={this.handleChangeName}
             required
           />
+          <p className="help-text">от 3 до 13 букв</p>
         </div>
         <div>
           <input
             type="tel"
-            pattern="8-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             className="form-field"
+            pattern="[0-9]{3,13}"
             placeholder="Введите номер телефона"
             value={number}
             onChange={this.handleChangeNumber}
             required
           />
-          <p className="help-text">формат: 8-xxx-xxx-xx-xx</p>
+          <p className="help-text">от 3 до 13 цифр</p>
           {error && (
             <p className="attention">
               {error}

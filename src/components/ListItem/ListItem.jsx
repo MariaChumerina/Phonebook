@@ -10,9 +10,14 @@ const ListItem = ({ name, number, deleteContact }) => {
 
   return (
     <li>
-      <p>
-        {name}: {number}
-      </p>
+      <div className="contact-item">
+        <p>
+          {name}
+        </p>
+        <p>
+          {number}
+        </p>
+      </div>
       <button type="button" className="btn-link btn-delete-position" onClick={handleRemove}>
         &#10005;
       </button>

@@ -3,12 +3,14 @@ li {
     list-style-type: none;
 }
 p {
-    margin-top: 30px;
-    margin-bottom: 0;
+    margin: 4px 0;
+}
+.contact-item {
+    margin-top: 25px;
 }
 .btn-delete-position {
     position: absolute;
-    top: -15px;
+    top: 0;
     right: 0;
 }
 li button {
