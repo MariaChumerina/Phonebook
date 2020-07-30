@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { addContact } from '../../Store/actions/contactsActions.js';
+import { closeModal } from '../../Store/actions/modalActions.js';
 
 class FormAddContact extends React.Component {
   state = {
@@ -22,6 +23,7 @@ class FormAddContact extends React.Component {
     const { name, number } = this.state;
     this.props.addContact({ name, number });
     this.setState({ name: '', number: ''});
+    this.props.closeModal();
   }
 
   render() {
@@ -59,6 +61,7 @@ class FormAddContact extends React.Component {
 
 const mapDispatchToProps = {
   addContact,
+  closeModal,
 };
 
 export default connect(null, mapDispatchToProps)(FormAddContact);
