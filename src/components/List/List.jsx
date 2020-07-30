@@ -27,8 +27,7 @@ const mapStateToProps = state => {
   const contacts = state.filteredContacts.contact.length
       ? state.contacts.contacts.filter((contact) => {
         return contact.name.includes(state.filteredContacts.contact)
-      })
-        : state.contacts.contacts;
+      }) : state.contacts.contacts;
   return {
     contacts,
   };
