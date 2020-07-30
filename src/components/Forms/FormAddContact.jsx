@@ -59,7 +59,7 @@ class FormAddContact extends React.Component {
             onChange={this.handleChangeName}
             required
           />
-          <p className="help-text">от 3 до 13 букв</p>
+          <p className="help-text">от 1 до 13 букв</p>
         </div>
         <div>
           <input
