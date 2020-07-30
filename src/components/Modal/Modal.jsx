@@ -4,33 +4,30 @@ import { closeModal } from '../../Store/actions/modalActions.js';
 import { connect } from 'react-redux';
 import FormAddContact from '../Forms/FormAddContact.jsx';
 
-class Modal extends React.Component {
-  handleClose = () => {
-    this.props.closeModal();
+const Modal = ({ closeModal }) => {
+  const handleClose = () => {
+    closeModal();
   }
 
-  render() {
-
-    return (
-        <div className="modal">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h3 className="modal-title">
-                  Добавление контакта
-                </h3>
-                <button className="btn-link close" onClick={this.handleClose}>
-                  &#10005;
-                </button>
-              </div>
-              <div className="modal-body">
-                <FormAddContact />
-              </div>
+  return (
+      <div className="modal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3 className="modal-title">
+                Добавление контакта
+              </h3>
+              <button className="btn-link close" onClick={handleClose}>
+                &#10005;
+              </button>
+            </div>
+            <div className="modal-body">
+              <FormAddContact />
             </div>
           </div>
         </div>
-    );
-  }
+      </div>
+  );
 }
 
 const mapStateToProps = state => {
