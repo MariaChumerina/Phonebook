@@ -21,26 +21,22 @@ class FormAddContact extends React.Component {
     this.setState({ number: value });
   }
 
-  isValidate = (field, value) => {
+  validateContact = (field, value) => {
     const { contacts } = this.props.contacts;
     const filteredContacts = contacts.filter((contact) => {
       return contact[field] === value;
     });
-    if (value.length === 0) {
-      throw new Error('Заполните все поля');
+    if (filteredContacts.length) {
+      throw new Error('Контакт с таким именем или номером уже существует');
     }
-    else if (filteredContacts.length) {
-      throw new Error('Контакт уже существует');
-    }
-    return true;
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, number } = this.state;
     try {
-      this.isValidate('name', name);
-      this.isValidate('number', number);
+      this.validateContact('name', name);
+      this.validateContact('number', number);
     } catch (error) {
       this.setState({ name: '', number: '', error: error.message });
       return;
@@ -55,23 +51,23 @@ class FormAddContact extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div>
           <input
+              type="text"
               className="form-field"
-              list="json-datalist"
               placeholder="Введите имя"
               value={name}
               onChange={this.handleChangeName}
+              required
           />
         </div>
         <div>
           <input
               type="tel"
-              name="tel"
               pattern="^[0-9]+$"
               className="form-field"
-              list="json-datalist"
               placeholder="Номер телефона без дефисов"
               value={number}
               onChange={this.handleChangeNumber}
+              required
           />
           {error && (
             <p className="attention">
