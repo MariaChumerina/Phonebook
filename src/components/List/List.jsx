@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './List.css';
 import ListItem from '../ListItem/ListItem.jsx';
 
@@ -30,3 +31,7 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, null)(List);
+
+List.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+}

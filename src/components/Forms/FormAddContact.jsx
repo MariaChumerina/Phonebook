@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { addContact } from '../../Store/actions/contactsActions.js';
 import { closeModal } from '../../Store/actions/modalActions.js';
 import './FormAddContact.css';
@@ -88,11 +89,9 @@ class FormAddContact extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    contacts: state.contacts,
-  };
-};
+const mapStateToProps = (state) => ({
+  contacts: state.contacts,
+});
 
 const mapDispatchToProps = {
   addContact,
@@ -100,3 +99,9 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormAddContact);
+
+FormAddContact.protoTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addContact: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+}

@@ -5,6 +5,7 @@ import FormSearch from '../Forms/FormSearch.jsx';
 import Modal from '../Modal/Modal.jsx';
 import './Main.css';
 import { openModal } from '../../Store/actions/modalActions.js';
+import PropTypes from 'prop-types';
 
 const Main = ({ modalIsOpen, openModal }) => {
   const handleClick = () => {
@@ -44,3 +45,8 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
+
+Main.propTypes = {
+  openModal: PropTypes.func.isRequired,
+  modalIsOpen: PropTypes.bool.isRequired,
+}

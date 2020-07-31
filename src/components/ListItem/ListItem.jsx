@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../Store/actions/contactsActions.js';
 import './ListItem.css';
@@ -30,3 +31,9 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(ListItem);
+
+ListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+}

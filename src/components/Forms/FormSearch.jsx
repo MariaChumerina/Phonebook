@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import './FormSearch.css';
 import { connect } from 'react-redux';
 import { searchContacts } from '../../Store/actions/contactsActions.js';
@@ -61,3 +62,7 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(FormSearch);
+
+FormSearch.propsTypes = {
+  searchContacts: PropTypes.func.isRequired,
+}

@@ -30,7 +30,7 @@ const rootReducer = combineReducers({
   filteredContacts: contactsSearchReducer,
 });
 
-export const Store = createStore(rootReducer, oldState);
+export const Store = createStore(rootReducer, oldState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 Store.subscribe(() => {
   saveState(Store.getState());

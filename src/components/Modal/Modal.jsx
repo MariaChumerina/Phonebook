@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Modal.css';
 import { closeModal } from '../../Store/actions/modalActions.js';
 import FormAddContact from '../Forms/FormAddContact.jsx';
+import PropTypes from 'prop-types';
 
 const Modal = ({ closeModal }) => {
   const handleClose = () => {
@@ -41,3 +42,7 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+
+Modal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+}
