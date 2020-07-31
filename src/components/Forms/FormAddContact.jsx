@@ -23,7 +23,7 @@ class FormAddContact extends React.Component {
   }
 
   validateField = (field, value) => {
-    const { contacts } = this.props.contacts;
+    const { contacts } = this.props;
     const filteredContacts = contacts.filter((contact) => contact[field] === value);
     if (filteredContacts.length) {
       throw new Error('Контакт с таким именем или номером уже существует');
@@ -90,7 +90,7 @@ class FormAddContact extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  contacts: state.contacts,
+  contacts: state.contacts.contacts,
 });
 
 const mapDispatchToProps = {
@@ -100,8 +100,8 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormAddContact);
 
-FormAddContact.protoTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.string).isRequired,
+FormAddContact.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
   addContact: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
 };

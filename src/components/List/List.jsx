@@ -5,12 +5,10 @@ import './List.css';
 import ListItem from '../ListItem/ListItem.jsx';
 
 const List = ({ contacts }) => {
-  const renderListItems = () => {
-    return contacts.map((contact) => {
-      const { name, number } = contact;
-      return <ListItem name={name} number={number} key={number} />;
-    });
-  };
+  const renderListItems = () => (contacts.map((contact) => {
+    const { name, number } = contact;
+    return <ListItem name={name} number={number} key={number} />;
+  }));
 
   return (
     <div>
@@ -21,14 +19,16 @@ const List = ({ contacts }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const contacts = state.valueOfSearch.length
-    ? state.contacts.contacts.filter((contact) => contact.name.toLowerCase().includes(state.valueOfSearch.toLowerCase()))
+function filterContacts(state) {
+  return state.valueOfSearch.length
+    ? state.contacts.contacts
+      .filter((contact) => contact.name.toLowerCase().includes(state.valueOfSearch.toLowerCase()))
     : state.contacts.contacts;
-  return {
-    contacts,
-  };
-};
+}
+
+const mapStateToProps = (state) => ({
+  contacts: filterContacts(state),
+});
 
 export default connect(mapStateToProps, null)(List);
 

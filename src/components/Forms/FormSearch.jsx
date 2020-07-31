@@ -64,6 +64,6 @@ const mapDispatchToProps = {
 
 export default connect(null, mapDispatchToProps)(FormSearch);
 
-FormSearch.propsTypes = {
+FormSearch.propTypes = {
   searchContacts: PropTypes.func.isRequired,
 };
