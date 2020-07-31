@@ -24,7 +24,7 @@ const Main = ({ modalIsOpen, openModal }) => {
             Контакты
           </h2>
           <button type="button" className="btn-link btn-link-position" onClick={handleClick}>
-            &#43;
+            +
           </button>
         </div>
         <List />

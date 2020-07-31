@@ -21,7 +21,7 @@ class FormAddContact extends React.Component {
     this.setState({ number: value });
   }
 
-  validateContact = (field, value) => {
+  validateField = (field, value) => {
     const { contacts } = this.props.contacts;
     const filteredContacts = contacts.filter((contact) => contact[field] === value);
     if (filteredContacts.length) {
@@ -34,8 +34,8 @@ class FormAddContact extends React.Component {
     const { name, number } = this.state;
     const { addContact, closeModal } = this.props;
     try {
-      this.validateContact('name', name);
-      this.validateContact('number', number);
+      this.validateField('name', name);
+      this.validateField('number', number);
     } catch (error) {
       this.setState({ error: error.message });
       return;
