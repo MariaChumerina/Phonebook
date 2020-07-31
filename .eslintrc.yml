@@ -19,15 +19,12 @@ plugins:
   - react
 rules:
   import/extensions: 'off'
-  import/no-named-as-default: 'off'
-  import/no-named-as-default-member: 'off'
   react/state-in-constructor: 'off'
   react/jsx-filename-extension:
     - 1
     - extensions:
       - ".js"
       - ".jsx"
-  jsx-a11y/label-has-associated-control: 'off'
   import/prefer-default-export: 'off'
   no-shadow: 'off'
   import/order: 'off'
