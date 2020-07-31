@@ -31,11 +31,9 @@ const Modal = ({ closeModal }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    modalIsOpen: state.modal.isOpen,
-  };
-};
+const mapStateToProps = (state) => ({
+  modalIsOpen: state.modal.isOpen,
+});
 
 const mapDispatchToProps = {
   closeModal,
@@ -45,4 +43,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-}
+};

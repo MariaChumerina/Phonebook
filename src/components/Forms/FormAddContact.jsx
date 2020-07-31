@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addContact } from '../../Store/actions/contactsActions.js';
+import { connect } from 'react-redux';
 import { closeModal } from '../../Store/actions/modalActions.js';
+import { addContact } from '../../Store/actions/contactsActions.js';
 import './FormAddContact.css';
 
 class FormAddContact extends React.Component {
@@ -104,4 +104,4 @@ FormAddContact.protoTypes = {
   contacts: PropTypes.arrayOf(PropTypes.string).isRequired,
   addContact: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
-}
+};

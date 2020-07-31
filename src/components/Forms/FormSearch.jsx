@@ -10,7 +10,8 @@ class FormSearch extends React.Component {
   }
 
   componentDidMount() {
-    this.props.searchContacts('');
+    const { searchContacts } = this.props;
+    searchContacts('');
   }
 
   handleChange = (e) => {
@@ -65,4 +66,4 @@ export default connect(null, mapDispatchToProps)(FormSearch);
 
 FormSearch.propsTypes = {
   searchContacts: PropTypes.func.isRequired,
-}
+};

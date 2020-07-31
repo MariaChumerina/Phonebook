@@ -34,11 +34,9 @@ const Main = ({ modalIsOpen, openModal }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    modalIsOpen: state.modal.isOpen,
-  };
-};
+const mapStateToProps = (state) => ({
+  modalIsOpen: state.modal.isOpen,
+});
 
 const mapDispatchToProps = {
   openModal,
@@ -49,4 +47,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Main);
 Main.propTypes = {
   openModal: PropTypes.func.isRequired,
   modalIsOpen: PropTypes.bool.isRequired,
-}
+};

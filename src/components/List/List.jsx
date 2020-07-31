@@ -23,7 +23,7 @@ const List = ({ contacts }) => {
 
 const mapStateToProps = (state) => {
   const contacts = state.filteredContacts.contact.length
-      ? state.contacts.contacts.filter((contact) => contact.name.toLowerCase().includes(state.filteredContacts.contact.toLowerCase()))
+    ? state.contacts.contacts.filter((contact) => contact.name.toLowerCase().includes(state.filteredContacts.contact.toLowerCase()))
     : state.contacts.contacts;
   return {
     contacts,
@@ -34,4 +34,4 @@ export default connect(mapStateToProps, null)(List);
 
 List.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-}
+};
