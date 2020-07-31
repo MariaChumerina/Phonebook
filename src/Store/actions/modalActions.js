@@ -1,6 +1,4 @@
-export const OPEN_MODAL = 'OPEN_MODAL';
-
-export const CLOSE_MODAL = 'CLOSE_MODAL';
+import { CLOSE_MODAL, OPEN_MODAL } from '../typesActions.js';
 
 export function openModal() {
   return {
@@ -11,7 +9,7 @@ export function openModal() {
 
 export function closeModal() {
   return {
-    type: OPEN_MODAL,
+    type: CLOSE_MODAL,
     payload: false,
   }
 }

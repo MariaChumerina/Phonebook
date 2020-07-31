@@ -1,4 +1,4 @@
-import { CONTACT_ADD, CONTACT_DELETE } from '../actions/contactsActions.js';
+import { CONTACT_ADD, CONTACT_DELETE } from '../typesActions.js';
 
 const initialState = {
   contacts: [],

@@ -1,8 +1,4 @@
-export const CONTACT_ADD = 'CONTACT_ADD';
-
-export const CONTACT_DELETE = 'CONTACT_DELETE';
-
-export const CONTACTS_SEARCH = 'CONTACTS_SEARCH';
+import { CONTACT_ADD, CONTACT_DELETE, CONTACTS_SEARCH } from '../typesActions.js';
 
 export function addContact(contact) {
   return {
