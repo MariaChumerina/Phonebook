@@ -22,8 +22,8 @@ const List = ({ contacts }) => {
 };
 
 const mapStateToProps = (state) => {
-  const contacts = state.filteredContacts.contact.length
-    ? state.contacts.contacts.filter((contact) => contact.name.toLowerCase().includes(state.filteredContacts.contact.toLowerCase()))
+  const contacts = state.valueOfSearch.length
+    ? state.contacts.contacts.filter((contact) => contact.name.toLowerCase().includes(state.valueOfSearch.toLowerCase()))
     : state.contacts.contacts;
   return {
     contacts,

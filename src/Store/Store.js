@@ -9,7 +9,7 @@ const oldState = loadState();
 const rootReducer = combineReducers({
   modal: modalReducer,
   contacts: contactsReducer,
-  filteredContacts: contactsSearchReducer,
+  valueOfSearch: contactsSearchReducer,
 });
 
 export const Store = createStore(rootReducer, oldState);
