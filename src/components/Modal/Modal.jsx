@@ -4,7 +4,7 @@ import './Modal.css';
 import { closeModal } from '../../Store/actions/modalActions.js';
 import PropTypes from 'prop-types';
 
-const Modal = ({ closeModal, modalBody }) => {
+const Modal = ({ closeModal, renderModalBody }) => {
   const handleClose = () => {
     closeModal();
   };
@@ -22,7 +22,7 @@ const Modal = ({ closeModal, modalBody }) => {
             </button>
           </div>
           <div className="modal-body">
-            {modalBody}
+            {renderModalBody()}
           </div>
         </div>
       </div>
@@ -42,5 +42,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  modalBody: PropTypes.element.isRequired,
 };
