@@ -54,13 +54,13 @@ class FormAddContact extends React.Component {
           <input
             type="text"
             className="form-field"
-            pattern="[A-Za-zА-Яа-яЁё]{1,13}"
+            pattern="[A-Za-zА-Яа-яЁё0-9]{1,13}"
             placeholder="Введите имя"
             value={name}
             onChange={this.handleChangeName}
             required
           />
-          <p className="help-text">от 1 до 13 букв</p>
+          <p className="help-text">от 1 до 13 символов</p>
         </div>
         <div>
           <input
