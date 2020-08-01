@@ -30,15 +30,11 @@ const Modal = ({ closeModal, renderModalBody }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  modalIsOpen: state.modal.isOpen,
-});
-
 const mapDispatchToProps = {
   closeModal,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(null, mapDispatchToProps)(Modal);
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
