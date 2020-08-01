@@ -2,10 +2,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import './Modal.css';
 import { closeModal } from '../../Store/actions/modalActions.js';
-import FormAddContact from '../Forms/FormAddContact.jsx';
 import PropTypes from 'prop-types';
 
-const Modal = ({ closeModal }) => {
+const Modal = ({ closeModal, modalBody }) => {
   const handleClose = () => {
     closeModal();
   };
@@ -23,7 +22,7 @@ const Modal = ({ closeModal }) => {
             </button>
           </div>
           <div className="modal-body">
-            <FormAddContact />
+            {modalBody}
           </div>
         </div>
       </div>
@@ -43,4 +42,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  modalBody: PropTypes.element.isRequired,
 };

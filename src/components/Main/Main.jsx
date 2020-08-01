@@ -6,6 +6,7 @@ import './Main.css';
 import { openModal } from '../../Store/actions/modalActions.js';
 import PropTypes from 'prop-types';
 import ContactsList from '../ContactsList/ContactsList.jsx';
+import FormAddContact from '../Forms/FormAddContact.jsx';
 
 const Main = ({ modalIsOpen, openModal }) => {
   const handleClick = () => {
@@ -26,7 +27,7 @@ const Main = ({ modalIsOpen, openModal }) => {
           <button type="button" className="btn-link btn-link-position" onClick={handleClick}>
             +
           </button>
-          {modalIsOpen && <Modal />}
+          {modalIsOpen && <Modal modalBody={FormAddContact} />}
         </div>
         <ContactsList />
       </div>
