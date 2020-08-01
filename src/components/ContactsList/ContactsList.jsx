@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './List.css';
-import ListItem from '../ListItem/ListItem.jsx';
+import './ContactsList.css';
+import ContactItem from '../ContactItem/ContactItem.jsx';
 
-const List = ({ contacts }) => {
+const ContactsList = ({ contacts }) => {
   const renderListItems = () => (contacts.map((contact) => {
     const { name, number } = contact;
-    return <ListItem name={name} number={number} key={number} />;
+    return <ContactItem name={name} number={number} key={number} />;
   }));
 
   return (
@@ -30,8 +30,8 @@ const mapStateToProps = (state) => ({
   contacts: filterContacts(state),
 });
 
-export default connect(mapStateToProps, null)(List);
+export default connect(mapStateToProps, null)(ContactsList);
 
-List.propTypes = {
+ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

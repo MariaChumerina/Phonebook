@@ -2,9 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../Store/actions/contactsActions.js';
-import './ListItem.css';
+import './ContactsItem.css';
 
-const ListItem = ({ name, number, deleteContact }) => {
+const ContactItem = ({ name, number, deleteContact }) => {
   const handleRemove = () => {
     deleteContact(number);
   };
@@ -30,9 +30,9 @@ const mapDispatchToProps = {
   deleteContact,
 };
 
-export default connect(null, mapDispatchToProps)(ListItem);
+export default connect(null, mapDispatchToProps)(ContactItem);
 
-ListItem.propTypes = {
+ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   deleteContact: PropTypes.func.isRequired,

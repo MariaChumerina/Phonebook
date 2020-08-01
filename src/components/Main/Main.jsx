@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import List from '../List/List.jsx';
 import FormSearch from '../Forms/FormSearch.jsx';
 import Modal from '../Modal/Modal.jsx';
 import './Main.css';
 import { openModal } from '../../Store/actions/modalActions.js';
 import PropTypes from 'prop-types';
+import ContactsList from '../ContactsList/ContactsList.jsx';
 
 const Main = ({ modalIsOpen, openModal }) => {
   const handleClick = () => {
@@ -14,7 +14,6 @@ const Main = ({ modalIsOpen, openModal }) => {
 
   return (
     <div className="margin-top-50">
-      {modalIsOpen && <Modal />}
       <h1>
         Телефонный справочник
       </h1>
@@ -27,8 +26,9 @@ const Main = ({ modalIsOpen, openModal }) => {
           <button type="button" className="btn-link btn-link-position" onClick={handleClick}>
             +
           </button>
+          {modalIsOpen && <Modal />}
         </div>
-        <List />
+        <ContactsList />
       </div>
     </div>
   );
