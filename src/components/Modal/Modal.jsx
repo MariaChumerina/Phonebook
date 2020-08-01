@@ -42,4 +42,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(Modal);
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  renderModalBody: PropTypes.func.isRequired,
 };
